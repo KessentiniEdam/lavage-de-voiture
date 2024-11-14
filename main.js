@@ -35,7 +35,7 @@ const getCurrentExchangeRate = async (newDevise) => {
   const res = await fetch(api.replace(":currency", newDevise || devise));
   const data = await res.json();
   let fromExchangeRate = data.conversion_rates["TND"];
-  rerenderTableContent(fromExchangeRate, newDevise || devise);
+  rerenderTableContent((1/fromExchangeRate), newDevise || devise);
   return fromExchangeRate;
 };
 
